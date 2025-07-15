@@ -10,31 +10,61 @@
       margin: 0;
       padding: 0;
     }
+
     body {
       font-family: 'Segoe UI', sans-serif;
       background-color: #0f172a;
       color: #f8fafc;
       padding: 2rem;
       line-height: 1.6;
+      animation: fadeInBody 1.2s ease;
     }
+
+    @keyframes fadeInBody {
+      from { opacity: 0; transform: scale(0.98); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
     .container {
       max-width: 800px;
       margin: auto;
       text-align: center;
+      animation: fadeUp 1s ease-in-out forwards;
+      opacity: 0;
     }
+
+    @keyframes fadeUp {
+      0% { opacity: 0; transform: translateY(40px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
     h1 {
       font-size: 3rem;
       margin-bottom: 0.5rem;
+      transition: color 0.3s;
     }
+
+    h1:hover {
+      color: #38bdf8;
+    }
+
     h2 {
       font-size: 2rem;
       margin: 2rem 0 1rem;
       color: #38bdf8;
+      opacity: 0;
+      animation: fadeUp 0.8s ease-in-out forwards;
     }
+
+    h2:nth-of-type(1) { animation-delay: 0.4s; }
+    h2:nth-of-type(2) { animation-delay: 0.6s; }
+    h2:nth-of-type(3) { animation-delay: 0.8s; }
+
     p {
       font-size: 1.1rem;
       color: #94a3b8;
     }
+
     .tag {
       display: inline-block;
       background-color: #1e293b;
@@ -43,11 +73,38 @@
       border-radius: 999px;
       margin: 0.3rem;
       font-size: 0.95rem;
+      transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s;
     }
+
+    .tag:hover {
+      background-color: #334155;
+      transform: scale(1.1);
+      box-shadow: 0 0 8px #38bdf8;
+    }
+
     a {
       color: #38bdf8;
       text-decoration: none;
+      transition: color 0.3s, text-shadow 0.3s;
     }
+
+    a:hover {
+      color: #7dd3fc;
+      text-shadow: 0 0 8px #38bdf8;
+    }
+
+    .project-link {
+      display: block;
+      margin: 0.5rem auto;
+      font-size: 1.05rem;
+      transition: transform 0.3s ease, color 0.3s;
+    }
+
+    .project-link:hover {
+      transform: scale(1.05);
+      color: #7dd3fc;
+    }
+
     footer {
       margin-top: 3rem;
       font-size: 0.9rem;
@@ -72,19 +129,18 @@
       <span class="tag">Java</span>
       <span class="tag">HTML</span>
       <span class="tag">CSS</span>
-      <span class="tag">Minecraft Plugins</span>
-      <span class="tag">Git & GitHub</span>
-      <span class="tag">PojavLauncher</span>
     </div>
 
     <h2>📁 Projects</h2>
-    <p>More coming soon! Stay tuned on <a href="https://github.com/Farhan58901234" target="_blank">GitHub</a>.</p>
+    <a class="project-link" href="https://github.com/Farhan58901234/GrapplerLite" target="_blank">🔗 GrapplerLite</a>
+    <a class="project-link" href="https://github.com/Farhan58901234/MinionPlugin" target="_blank">🔗 MinionsPlugin</a>
+    <p>More coming soon on <a href="https://github.com/Farhan58901234" target="_blank">GitHub</a>.</p>
 
     <h2>📫 Contact</h2>
-    <p>Email: <a href="mailto:farhan@example.com">farhan@example.com</a> (replace with yours)</p>
+    <p>Email: <a href="mailto:farhan5890123@gmail.com">farhan5890123@gmail.com</a></p>
 
     <footer>
-      <p>© 2025 Farhan Ali. Built with ❤️ and GitHub Pages.</p>
+      <p>© 2025 Farhan Ali. Built with ❤️.</p>
     </footer>
   </div>
 </body>

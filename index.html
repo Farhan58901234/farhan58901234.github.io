@@ -5,64 +5,101 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Farhan Ali | Developer Portfolio</title>
   <style>
+    /* Reset & Base Styles */
     * {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
     }
-
+    html {
+      scroll-behavior: smooth;
+    }
     body {
       font-family: 'Segoe UI', sans-serif;
       background-color: #0f172a;
       color: #f8fafc;
-      padding: 2rem;
       line-height: 1.6;
-      animation: fadeInBody 1.2s ease;
+      transition: background-color 0.4s, color 0.4s;
     }
 
-    @keyframes fadeInBody {
-      from { opacity: 0; transform: scale(0.98); }
-      to { opacity: 1; transform: scale(1); }
+    /* Light mode styles */
+    body.light {
+      background-color: #f1f5f9;
+      color: #0f172a;
     }
 
+    /* Spinner */
+    #spinner {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      background: #0f172a;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #spinner .loader {
+      border: 6px solid #1e293b;
+      border-top: 6px solid #38bdf8;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      animation: spin 0.8s linear infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    /* Container */
     .container {
       max-width: 800px;
       margin: auto;
+      padding: 2rem;
       text-align: center;
-      animation: fadeUp 1s ease-in-out forwards;
-      opacity: 0;
+      display: none;
+      animation: fadeIn 1s ease-in-out forwards;
     }
 
-    @keyframes fadeUp {
-      0% { opacity: 0; transform: translateY(40px); }
-      100% { opacity: 1; transform: translateY(0); }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     h1 {
       font-size: 3rem;
-      margin-bottom: 0.5rem;
-      transition: color 0.3s;
+      margin-bottom: 1rem;
     }
 
-    h1:hover {
-      color: #38bdf8;
+    .typewriter::after {
+      content: "|";
+      animation: blink 1s infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
     }
 
     h2 {
       font-size: 2rem;
       margin: 2rem 0 1rem;
       color: #38bdf8;
-      opacity: 0;
-      animation: fadeUp 0.8s ease-in-out forwards;
     }
 
-    h2:nth-of-type(1) { animation-delay: 0.4s; }
-    h2:nth-of-type(2) { animation-delay: 0.6s; }
-    h2:nth-of-type(3) { animation-delay: 0.8s; }
+    body.light h2 {
+      color: #0ea5e9;
+    }
 
     p {
       font-size: 1.1rem;
       color: #94a3b8;
+    }
+
+    body.light p {
+      color: #475569;
     }
 
     .tag {
@@ -73,42 +110,66 @@
       border-radius: 999px;
       margin: 0.3rem;
       font-size: 0.95rem;
-      transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s;
+      transition: transform 0.3s;
     }
 
     .tag:hover {
-      background-color: #334155;
       transform: scale(1.1);
-      box-shadow: 0 0 8px #38bdf8;
+    }
+
+    body.light .tag {
+      background-color: #e2e8f0;
+      color: #0284c7;
     }
 
     a {
       color: #38bdf8;
       text-decoration: none;
-      transition: color 0.3s, text-shadow 0.3s;
+      transition: color 0.3s;
     }
 
     a:hover {
       color: #7dd3fc;
-      text-shadow: 0 0 8px #38bdf8;
     }
 
     .project-link {
       display: block;
       margin: 0.5rem auto;
       font-size: 1.05rem;
-      transition: transform 0.3s ease, color 0.3s;
+      transition: transform 0.3s;
     }
 
     .project-link:hover {
       transform: scale(1.05);
-      color: #7dd3fc;
     }
 
     footer {
       margin-top: 3rem;
       font-size: 0.9rem;
       color: #64748b;
+    }
+
+    .toggle-mode {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: #1e293b;
+      border: none;
+      color: #f8fafc;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      z-index: 1000;
+      transition: background-color 0.3s;
+    }
+
+    .toggle-mode:hover {
+      background-color: #334155;
+    }
+
+    body.light .toggle-mode {
+      background: #cbd5e1;
+      color: #0f172a;
     }
 
     @media (max-width: 600px) {
@@ -119,9 +180,22 @@
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Farhan Ali</h1>
+
+  <!-- Spinner -->
+  <div id="spinner">
+    <div class="loader"></div>
+  </div>
+
+  <!-- Dark/Light Toggle -->
+  <button class="toggle-mode" onclick="toggleMode()">☀️ / 🌙</button>
+
+  <!-- Main Content -->
+  <div class="container" id="main-content">
+    <h1 class="typewriter" id="name"></h1>
     <p>👨‍💻 Self-taught Developer | Pakistan</p>
+
+    <h2>👋 About Me</h2>
+    <p>I’m a passionate young developer who loves Java and JavaScript. I create useful things — from Minecraft plugins to random web tools.</p>
 
     <h2>💻 Languages & Tools</h2>
     <div>
@@ -134,7 +208,7 @@
     <h2>📁 Projects</h2>
     <a class="project-link" href="https://github.com/Farhan58901234/GrapplerLite" target="_blank">🔗 GrapplerLite</a>
     <a class="project-link" href="https://github.com/Farhan58901234/MinionPlugin" target="_blank">🔗 MinionsPlugin</a>
-    <p>More coming soon on <a href="https://github.com/Farhan58901234" target="_blank">GitHub</a>.</p>
+    <p>More soon on <a href="https://github.com/Farhan58901234" target="_blank">GitHub</a>.</p>
 
     <h2>📫 Contact</h2>
     <p>Email: <a href="mailto:farhan5890123@gmail.com">farhan5890123@gmail.com</a></p>
@@ -143,5 +217,31 @@
       <p>© 2025 Farhan Ali. Built with ❤️.</p>
     </footer>
   </div>
+
+  <!-- Scripts -->
+  <script>
+    // Remove spinner on load
+    window.addEventListener('load', () => {
+      document.getElementById('spinner').style.display = 'none';
+      document.getElementById('main-content').style.display = 'block';
+      typeWriter(); // start typewriter
+    });
+
+    // Dark/Light toggle
+    function toggleMode() {
+      document.body.classList.toggle('light');
+    }
+
+    // Typewriter effect
+    const nameText = "Farhan Ali";
+    let i = 0;
+    function typeWriter() {
+      if (i < nameText.length) {
+        document.getElementById("name").innerHTML += nameText.charAt(i);
+        i++;
+        setTimeout(typeWriter, 150);
+      }
+    }
+  </script>
 </body>
 </html>

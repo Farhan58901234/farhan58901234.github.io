@@ -1,20 +1,189 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Projects | Farhan Ali</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Farhan Ali | Developer Portfolio</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #0f172a;
+      color: #f8fafc;
+      transition: background-color 0.4s, color 0.4s;
+      padding: 2rem;
+    }
+
+    body.light {
+      background-color: #f1f5f9;
+      color: #0f172a;
+    }
+
+    nav {
+      background: #1e293b;
+      padding: 1rem;
+      text-align: center;
+      margin: -2rem -2rem 2rem -2rem;
+    }
+
+    nav a {
+      color: #38bdf8;
+      text-decoration: none;
+      margin: 0 1rem;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: #7dd3fc;
+    }
+
+    .toggle-mode {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: #1e293b;
+      color: white;
+      padding: 6px 12px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      z-index: 999;
+    }
+
+    body.light .toggle-mode {
+      background: #cbd5e1;
+      color: #0f172a;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: auto;
+      text-align: center;
+      animation: fadeIn 1s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .typewriter::after {
+      content: "|";
+      animation: blink 1s infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin: 2rem 0 1rem;
+      color: #38bdf8;
+    }
+
+    body.light h2 {
+      color: #0ea5e9;
+    }
+
+    p {
+      font-size: 1.1rem;
+      color: #94a3b8;
+    }
+
+    body.light p {
+      color: #475569;
+    }
+
+    .tag {
+      display: inline-block;
+      background-color: #1e293b;
+      color: #38bdf8;
+      padding: 0.4rem 0.8rem;
+      border-radius: 999px;
+      margin: 0.3rem;
+      font-size: 0.95rem;
+      transition: transform 0.3s;
+    }
+
+    .tag:hover {
+      transform: scale(1.1);
+    }
+
+    body.light .tag {
+      background-color: #e2e8f0;
+      color: #0284c7;
+    }
+
+    footer {
+      margin-top: 3rem;
+      font-size: 0.9rem;
+      color: #64748b;
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 2.2rem; }
+      h2 { font-size: 1.6rem; }
+      p { font-size: 1rem; }
+    }
+  </style>
 </head>
 <body>
+  <button class="toggle-mode" onclick="toggleMode()">☀️ / 🌙</button>
+
   <nav>
     <a href="index.html">Home</a>
     <a href="projects.html">Projects</a>
     <a href="contact.html">Contact</a>
   </nav>
 
-  <h1>My Projects</h1>
-  <ul>
-    <li><a href="https://github.com/Farhan58901234/GrapplerLite" target="_blank">GrapplerLite</a> — A cool plugin for Minecraft.</li>
-    <li><a href="https://github.com/Farhan58901234/MinionPlugin" target="_blank">MinionsPlugin</a> — Automates resource gathering.</li>
-  </ul>
+  <div class="container">
+    <h1 class="typewriter" id="name"></h1>
+    <p>👨‍💻 Self-taught Developer | Pakistan</p>
+
+    <h2>👋 About Me</h2>
+    <p>I’m a passionate young developer who loves Java and JavaScript. I create useful things — from Minecraft plugins to random web tools.</p>
+
+    <h2>💻 Languages & Tools</h2>
+    <div>
+      <span class="tag">JavaScript</span>
+      <span class="tag">Java</span>
+      <span class="tag">HTML</span>
+      <span class="tag">CSS</span>
+    </div>
+
+    <footer>
+      <p>© 2025 Farhan Ali. Built with ❤️.</p>
+    </footer>
+  </div>
+
+  <script>
+    function toggleMode() {
+      document.body.classList.toggle('light');
+    }
+
+    const nameText = "Farhan Ali";
+    let i = 0;
+    function typeWriter() {
+      if (i < nameText.length) {
+        document.getElementById("name").innerHTML += nameText.charAt(i);
+        i++;
+        setTimeout(typeWriter, 150);
+      }
+    }
+
+    window.onload = typeWriter;
+  </script>
 </body>
 </html>

@@ -1,178 +1,240 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Farhan Ali Shaikh | Minecraft Plugin Developer</title>
-<meta name="description" content="Farhan Ali Shaikh, a 9th-grade Computer Science student from Karachi who builds and ships Minecraft plugins in Java.">
+<title>Farhan Ali Shaikh</title>
+<meta name="description" content="Hi, I'm Farhan, a 9th-grade Computer Science student from Karachi who codes, fixes computers, makes videos and teaches.">
+<meta name="theme-color" content="#05080a">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@500;700&display=swap" rel="stylesheet">
+<script>if(!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('fx');</script>
 <style>
-:root{
-  --bg:#EEF1EE; --card:#FFFFFF; --ink:#16211D; --muted:#55645E; --line:#CBD3CE;
-  --spruce:#24473A; --accent:#177E8A; --slot:#C6C6C6; --slot-in:#8B8B8B; --slot-hi:#FFFFFF; --on-accent:#FFFFFF;
-}
-@media (prefers-color-scheme:dark){
-  :root:not([data-theme="light"]){
-    --bg:#121A17; --card:#1A2622; --ink:#E7EEEA; --muted:#9BAAA3; --line:#2C3B35;
-    --spruce:#7FC4A5; --accent:#5CC7D3; --slot:#3A4641; --slot-in:#222B27; --slot-hi:#55635C; --on-accent:#0E1513;
-  }
-}
-:root[data-theme="dark"]{
-  --bg:#121A17; --card:#1A2622; --ink:#E7EEEA; --muted:#9BAAA3; --line:#2C3B35;
-  --spruce:#7FC4A5; --accent:#5CC7D3; --slot:#3A4641; --slot-in:#222B27; --slot-hi:#55635C; --on-accent:#0E1513;
-}
+:root{--bg:#05080A;--ink:#F4F7F5;--muted:#8C9A94;--line:#1B2622;--a:#5CC7D3;--b:#7FE3A8;--mx:50vw;--my:30vh}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
-a{color:var(--accent)}
-a:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
-.wrap{max-width:900px;margin:0 auto;padding:0 22px}
-header{border-bottom:1px solid var(--line)}
-nav{display:flex;align-items:center;gap:22px;padding:16px 0}
-nav .brand{font-weight:800;color:var(--ink);text-decoration:none;margin-right:auto}
-nav a{color:var(--muted);text-decoration:none;font-weight:600}
+body{margin:0;background:var(--bg);color:var(--ink);font:18px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;overflow-x:hidden}
+[dir=rtl] body,[dir=rtl] button{font-family:"Noto Naskh Arabic","Segoe UI",Tahoma,sans-serif}
+[dir=rtl] *{letter-spacing:0!important}
+[dir=rtl] h1,[dir=rtl] .panel h2{line-height:1.35}[dir=rtl] .story{line-height:1.5}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;background:radial-gradient(500px circle at var(--mx) var(--my),rgba(92,199,211,.10),transparent 60%)}
+a{color:var(--a)}a:focus-visible,button:focus-visible{outline:3px solid var(--a);outline-offset:4px}
+.wrap{max-width:900px;margin:0 auto;padding:0 24px;position:relative;z-index:1}
+#bar{position:fixed;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--a),var(--b));transform:scaleX(0);transform-origin:left;z-index:60}
+[dir=rtl] #bar{transform-origin:right}
+#ring{position:fixed;left:0;top:0;width:34px;height:34px;margin:-17px 0 0 -17px;border:1.5px solid var(--a);border-radius:50%;pointer-events:none;z-index:50;opacity:.8;transition:width .25s,height .25s,margin .25s,background .25s}
+#ring.big{width:66px;height:66px;margin:-33px 0 0 -33px;background:rgba(92,199,211,.12)}
+nav{position:fixed;top:0;left:0;right:0;z-index:10;backdrop-filter:blur(16px) saturate(1.4);-webkit-backdrop-filter:blur(16px) saturate(1.4);background:rgba(5,8,10,.55);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;gap:22px;align-items:center;height:58px}
+.brand{margin-inline-end:auto;font-weight:800;color:var(--ink);text-decoration:none}
+.nl{display:flex;gap:22px}
+nav a{color:var(--muted);text-decoration:none;font-weight:600;font-size:.95rem;transition:color .2s}
 nav a:hover{color:var(--ink)}
-#theme{background:none;border:1px solid var(--line);color:var(--ink);border-radius:8px;padding:6px 10px;font:inherit;cursor:pointer}
-.hero{padding:72px 0 56px}
-h1{font-size:clamp(2.4rem,7vw,4.2rem);line-height:1.05;margin:0 0 20px;letter-spacing:-.02em;color:var(--spruce);max-width:14ch}
-.hero p{max-width:56ch;color:var(--muted);font-size:1.1rem;margin:0 0 26px}
-.btns{display:flex;flex-wrap:wrap;gap:12px}
-.btn{display:inline-block;padding:11px 20px;border-radius:8px;font-weight:700;text-decoration:none;border:2px solid var(--accent)}
-.btn.main{background:var(--accent);color:var(--on-accent)}
-.btn.alt{color:var(--accent)}
-section{padding:44px 0;border-top:1px solid var(--line)}
-h2{font-size:1.7rem;margin:0 0 22px;color:var(--spruce);letter-spacing:-.01em}
-.feature{display:grid;grid-template-columns:1.1fr 1fr;gap:34px;align-items:center}
-.feature h3{margin:0 0 6px;font-size:1.35rem}
-.feature p{margin:0 0 14px;color:var(--muted)}
-.facts{display:flex;flex-wrap:wrap;gap:8px 18px;margin:0 0 16px;padding:0;list-style:none;font-weight:700}
-.facts span{color:var(--muted);font-weight:500}
-/* eBanks GUI mock */
-.gui{background:var(--slot);border:3px solid var(--slot-hi);border-right-color:var(--slot-in);border-bottom-color:var(--slot-in);padding:12px;box-shadow:0 0 0 3px #000 inset;border-radius:2px}
-.gui b{display:block;color:#3F3F3F;font-size:.85rem;margin:0 0 8px}
-:root[data-theme="dark"] .gui b{color:#C8D3CD}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .gui b{color:#C8D3CD}}
-.slots{display:grid;grid-template-columns:repeat(5,1fr);gap:5px}
-.slot{aspect-ratio:1;background:var(--slot-in);border:2px solid var(--slot-in);border-right-color:var(--slot-hi);border-bottom-color:var(--slot-hi);display:flex;align-items:center;justify-content:center;text-align:center;font-size:.68rem;line-height:1.15;font-weight:700;color:var(--ink);padding:2px}
-.slot.on{background:var(--accent);color:var(--on-accent)}
-.list{display:grid;gap:0;margin:0;padding:0;list-style:none}
-.list li{display:grid;grid-template-columns:190px 1fr;gap:14px;padding:14px 0;border-bottom:1px solid var(--line)}
-.list li:last-child{border-bottom:0}
-.list a{font-weight:700}
-.list span{color:var(--muted)}
-.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:26px}
-.skills h3{margin:0 0 6px;font-size:1.05rem}
-.skills p{margin:0;color:var(--muted)}
-.links{display:flex;flex-wrap:wrap;gap:12px}
-footer{padding:28px 0 40px;color:var(--muted);font-size:.9rem;border-top:1px solid var(--line)}
-@media (max-width:720px){
-  .feature{grid-template-columns:1fr}
-  .list li{grid-template-columns:1fr;gap:2px}
-  nav{gap:14px;flex-wrap:wrap}
-}
+.lang{display:flex;gap:4px;padding:3px;border:1px solid var(--line);border-radius:99px}
+.lang button{background:none;border:0;color:var(--muted);font:inherit;font-size:.85rem;font-weight:700;padding:4px 10px;border-radius:99px;cursor:pointer;transition:all .25s}
+.lang button[aria-pressed=true]{background:var(--a);color:#05080A}
+main{transition:opacity .22s}
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden}
+.blob{position:absolute;border-radius:50%;filter:blur(90px);opacity:.55;will-change:transform}
+.b1{width:46vmax;height:46vmax;background:#177E8A;left:-12vmax;top:-10vmax}
+.b2{width:38vmax;height:38vmax;background:#2E7D5B;right:-10vmax;top:14vmax}
+.b3{width:26vmax;height:26vmax;background:#3B5BA5;left:34vw;bottom:-14vmax;opacity:.4}
+.fx .b1{animation:f1 16s ease-in-out infinite alternate}.fx .b2{animation:f2 19s ease-in-out infinite alternate}.fx .b3{animation:f1 22s ease-in-out infinite alternate-reverse}
+@keyframes f1{to{transform:translate(9vmax,6vmax) scale(1.15)}}@keyframes f2{to{transform:translate(-8vmax,-5vmax) scale(.9)}}
+h1{font-size:clamp(3.1rem,10.5vw,7.6rem);line-height:1;margin:0 0 20px;letter-spacing:-.04em;font-weight:800;padding-bottom:.1em}
+.wd{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.12em;margin-inline-end:.22em}
+.fx .ch{display:inline-block;transform:translateY(115%);animation:rise 1s cubic-bezier(.16,.84,.24,1) forwards;animation-delay:calc(var(--i)*var(--s,55ms) + 250ms)}
+@keyframes rise{to{transform:none}}
+.type{font-size:clamp(1.35rem,4.2vw,2.2rem);font-weight:700;color:var(--a);margin:0 0 26px;min-height:1.5em}
+.cur{display:inline-block;width:3px;height:1em;background:var(--a);margin-inline-start:3px;vertical-align:-.12em;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.sr{position:absolute;left:-9999px}
+.lead{max-width:44ch;color:var(--muted);font-size:1.15rem;margin:0}
+.fx .lead,.fx .type{opacity:0;animation:fade 1.2s ease forwards}.fx .type{animation-delay:1.1s}.fx .lead{animation-delay:1.5s}
+@keyframes fade{to{opacity:1}}
+.cue{position:absolute;bottom:28px;left:50%;width:2px;height:54px;background:linear-gradient(var(--a),transparent);transform-origin:top;animation:cue 2s ease-in-out infinite}
+@keyframes cue{0%{transform:scaleY(0)}50%{transform:scaleY(1)}100%{transform:scaleY(1);opacity:0}}
+.marq{overflow:hidden;direction:ltr;border-block:1px solid var(--line);padding:22px 0;position:relative;z-index:1}
+.track{display:flex;width:max-content;gap:44px;font-size:clamp(1.6rem,4vw,2.6rem);font-weight:800;color:transparent;-webkit-text-stroke:1px #4a5c55;font-family:system-ui,sans-serif}
+.track span::after{content:"\2726";margin-inline-start:44px;color:var(--a);-webkit-text-stroke:0}
+.fx .track{animation:mq 32s linear infinite}
+@keyframes mq{to{transform:translateX(-50%)}}
+.scene{position:relative;z-index:1}
+.fx .scene{height:300vh}
+.fx .stage{position:sticky;top:0;height:100vh;display:flex;align-items:center;overflow:hidden}
+.stage{padding:90px 0}
+.story{font-size:clamp(1.8rem,5.2vw,3.7rem);line-height:1.14;font-weight:700;letter-spacing:-.02em;max-width:20em}
+.fx .w{opacity:.16;transition:opacity .25s}.fx .w.on{opacity:1}
+.fx #do.scene{height:420vh}
+.panels{position:relative;width:100%;height:100%}
+.panel{text-align:center;padding:24px}
+.panel h2{font-size:clamp(3.6rem,16vw,11rem);line-height:.95;margin:0 0 14px;letter-spacing:-.05em;font-weight:800;background:linear-gradient(180deg,#fff,#7fa79c);-webkit-background-clip:text;background-clip:text;color:transparent}
+.panel p{color:var(--muted);font-size:clamp(1.05rem,2.4vw,1.4rem);max-width:30em;margin:0 auto}
+.fx .panel{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;opacity:0;will-change:transform,opacity,filter}
+.dots{display:none}
+.fx .dots{display:flex;flex-direction:column;gap:10px;position:absolute;inset-inline-end:22px;top:50%;transform:translateY(-50%);z-index:2}
+.dots i{width:7px;height:7px;border-radius:50%;background:#2a3a34;transition:all .3s}
+.dots i.on{background:var(--a);height:24px;border-radius:5px}
+.stats{padding:100px 0;position:relative;z-index:1}
+h3{font-size:clamp(1.8rem,4vw,2.6rem);margin:0 0 40px;letter-spacing:-.02em}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:34px 24px}
+.num{font-size:clamp(3rem,8vw,5rem);font-weight:800;letter-spacing:-.04em;line-height:1.1;background:linear-gradient(90deg,var(--a),var(--b));-webkit-background-clip:text;background-clip:text;color:transparent}
+.grid span{display:block;color:var(--muted);margin-top:6px}
+.find{padding:40px 0 110px;position:relative;z-index:1}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:16px;perspective:900px}
+.card{display:block;padding:32px 22px;border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.03);color:var(--ink);text-decoration:none;font-size:1.3rem;font-weight:700;transition:transform .15s ease-out,border-color .3s,background .3s;transform-style:preserve-3d}
+.card small{display:block;color:var(--muted);font-weight:500;font-size:.95rem;margin-top:4px}
+.card:hover{border-color:var(--a);background:rgba(92,199,211,.08)}
+.fx .rv{opacity:0;transform:translateY(40px) scale(.98);transition:opacity 1s cubic-bezier(.16,.84,.24,1),transform 1s cubic-bezier(.16,.84,.24,1)}
+.fx .rv.in{opacity:1;transform:none}
+.fx .grid.rv>div,.fx .cards.rv>a{opacity:0;transform:translateY(30px);transition:opacity .8s,transform .8s cubic-bezier(.16,.84,.24,1)}
+.fx .rv.in>*{opacity:1;transform:none}
+.fx .rv.in>*:nth-child(2){transition-delay:.12s}.fx .rv.in>*:nth-child(3){transition-delay:.24s}.fx .rv.in>*:nth-child(4){transition-delay:.36s}.fx .rv.in>*:nth-child(5){transition-delay:.48s}
+footer{padding:26px 0 40px;color:var(--muted);font-size:.9rem;border-top:1px solid var(--line);position:relative;z-index:1}
+@media (max-width:700px){.nl{display:none}nav .wrap{gap:12px}}
 </style>
 </head>
 <body>
-<header>
-  <div class="wrap">
-    <nav aria-label="Main">
-      <a class="brand" href="#top">Farhan Ali Shaikh</a>
-      <a href="#projects">Projects</a>
-      <a href="#skills">Skills</a>
-      <a href="#contact">Contact</a>
-      <button id="theme" type="button" aria-label="Switch between light and dark theme">Theme</button>
-    </nav>
-  </div>
-</header>
+<div id="bar"></div>
+<nav aria-label="Main"><div class="wrap">
+  <a class="brand" href="#top" data-i="brand">Farhan Ali Shaikh</a>
+  <span class="nl"><a href="#about" data-i="n1">About</a><a href="#do" data-i="n2">What I do</a><a href="#find" data-i="n3">Find me</a></span>
+  <div class="lang" role="group" aria-label="Language"><button data-l="en">EN</button><button data-l="ur">اردو</button><button data-l="sd">سنڌي</button><button data-l="ar">عربي</button></div>
+</div></nav>
 
 <main id="top">
-  <div class="wrap hero">
-    <h1>I build Minecraft plugins.</h1>
-    <p>I'm Farhan, a 9th-grade Computer Science student from Karachi. I plan, test and ship plugins in Java with AI-assisted development, and I like teaching others how tech works.</p>
-    <div class="btns">
-      <a class="btn main" href="#projects">See my projects</a>
-      <a class="btn alt" href="#contact">Get in touch</a>
+  <section class="hero">
+    <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
+    <div class="wrap" id="hc">
+      <h1 id="h1" data-i="h1">Hi, I'm Farhan.</h1>
+      <p class="type"><span class="sr" data-i="sr">I code Minecraft plugins, Discord bots, websites and more.</span><span aria-hidden="true"><span data-i="tp">I code</span> <span id="word"></span><span class="cur"></span></span></p>
+      <p class="lead" data-i="lead">A 9th-grade student from Karachi who loves computers.</p>
     </div>
-  </div>
-
-  <section id="projects">
-    <div class="wrap">
-      <h2>Projects</h2>
-      <div class="feature">
-        <div>
-          <h3>eBanks</h3>
-          <p>A full banking plugin: deposits, withdrawals, transfers, interest and loans, from an in-game menu or a web dashboard that works on phones.</p>
-          <ul class="facts">
-            <li>260+ <span>downloads</span></li>
-            <li>5/5 <span>rating</span></li>
-            <li>14 <span>updates</span></li>
-          </ul>
-          <p>Supports 8 languages, including Urdu and Hindi. Tested on Minecraft 1.16 to 26.2.</p>
-          <a class="btn main" href="https://www.spigotmc.org/resources/ebanks-banking-loans-gui-web-interface.133082/">View on SpigotMC</a>
-        </div>
-        <div class="gui" role="img" aria-label="Illustration of the eBanks in-game menu">
-          <b>eBanks</b>
-          <div class="slots" aria-hidden="true">
-            <div class="slot on">Balance</div><div class="slot"></div><div class="slot on">Deposit</div><div class="slot"></div><div class="slot on">Withdraw</div>
-            <div class="slot"></div><div class="slot on">Send</div><div class="slot"></div><div class="slot on">Loans</div><div class="slot"></div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <div class="cue" aria-hidden="true"></div>
   </section>
+  <div class="marq" aria-hidden="true"><div class="track" id="track"><span>Java</span><span>HTML</span><span>CSS</span><span>JavaScript</span><span>Minecraft</span><span>Discord</span><span>CapCut</span><span>Windows</span></div></div>
 
-  <section>
-    <div class="wrap">
-      <h2>More plugins</h2>
-      <ul class="list">
-        <li><a href="https://www.spigotmc.org/resources/nexuswarps-%E2%80%94-advanced-player-warp-system.133419/">NexusWarps</a><span>Player warps with a menu, ratings and multi-language support.</span></li>
-        <li><a href="https://www.spigotmc.org/resources/kronos-%E2%9A%A1-real-time-tps-monitor-lag-analyzer.133035/">Kronos</a><span>Real-time TPS monitor that shows what is causing server lag.</span></li>
-        <li><a href="https://www.spigotmc.org/resources/%E2%9E%A4-motdrotator-%E2%80%93-rotate-your-server-motd-automatically.127195/">MOTDRotator</a><span>Rotates your server's MOTD automatically.</span></li>
-        <li><a href="https://github.com/Farhan58901234/GrapplerLite">GrapplerLite</a><span>A lightweight, customizable grappling hook. Source on GitHub.</span></li>
-        <li><a href="https://github.com/Farhan58901234/MinionPlugin">MinionsPlugin</a><span>Minions that auto-mine, auto-farm and collect loot. Source on GitHub.</span></li>
-        <li><a href="https://www.spigotmc.org/resources/customnick-1-8-1-20.114371/">CustomNick</a><span>Colorful custom nicknames for players.</span></li>
-      </ul>
-    </div>
-  </section>
+  <section class="scene" id="about"><div class="stage"><div class="wrap">
+    <p class="story" id="story" data-i="story">I'm a 9th-grade Computer Science student from Karachi. I learn by building things and testing them until they work. One day, I'll be a computer engineer.</p>
+  </div></div></section>
 
-  <section id="skills">
-    <div class="wrap">
-      <h2>Skills</h2>
-      <div class="skills">
-        <div><h3>Building</h3><p>Minecraft plugins in Java, built with AI-assisted development. HTML and CSS for this site.</p></div>
-        <div><h3>Testing and fixing</h3><p>I test every release myself and fix bugs, including a money-duplication exploit in eBanks.</p></div>
-        <div><h3>Computers</h3><p>Windows reinstalls, software fixes and basic hardware checks. I have taught friends to do it themselves.</p></div>
-        <div><h3>Minecraft servers</h3><p>Set up and ran a community server with up to 15 players online at once.</p></div>
-      </div>
+  <section class="scene" id="do"><div class="stage">
+    <div class="dots" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+    <div class="panels">
+      <div class="panel"><h2 data-i="p1">I code.</h2><p data-i="q1">Minecraft plugins, Discord bots and websites, in Java, HTML and CSS.</p></div>
+      <div class="panel"><h2 data-i="p2">I fix.</h2><p data-i="q2">Windows installs, software problems, and RAM, disk and motherboard checks.</p></div>
+      <div class="panel"><h2 data-i="p3">I create.</h2><p data-i="q3">A YouTube channel of random fun videos, with 600+ subscribers.</p></div>
+      <div class="panel"><h2 data-i="p4">I teach.</h2><p data-i="q4">I explain tech simply, so my friends can do it themselves.</p></div>
     </div>
-  </section>
+  </div></section>
 
-  <section id="contact">
-    <div class="wrap">
-      <h2>Contact</h2>
-      <p style="margin:0 0 18px;color:var(--muted)">For plugin help or questions, the quickest way is the Discord server.</p>
-      <div class="links">
-        <a class="btn main" href="https://discord.gg/zYwBQ67k4z">Discord</a>
-        <a class="btn alt" href="https://github.com/Farhan58901234">GitHub</a>
-        <a class="btn alt" href="https://www.spigotmc.org/resources/authors/farhan12.1495896/">SpigotMC</a>
-        <a class="btn alt" href="https://www.youtube.com/@MemeboyFarhan">YouTube</a>
-      </div>
+  <section class="stats"><div class="wrap">
+    <h3 class="rv" data-i="s0">A few numbers.</h3>
+    <div class="grid rv">
+      <div><div class="num" data-to="600" data-suf="+">0</div><span data-i="s1">YouTube subscribers</span></div>
+      <div><div class="num" data-to="110" data-suf="">0</div><span data-i="s2">words per minute when typing</span></div>
+      <div><div class="num" data-to="15" data-suf="">0</div><span data-i="s3">players online at once on my server</span></div>
+      <div><div class="num" data-to="4" data-suf="">0</div><span data-i="s4">languages I speak</span></div>
     </div>
-  </section>
+  </div></section>
+
+  <section class="find" id="find"><div class="wrap">
+    <h3 class="rv" data-i="f0">Find me online.</h3>
+    <div class="cards rv">
+      <a class="card" href="https://github.com/Farhan58901234"><span>GitHub</span><small data-i="f1">My code</small></a>
+      <a class="card" href="https://www.youtube.com/@MemeboyFarhan"><span>YouTube</span><small data-i="f2">My videos</small></a>
+      <a class="card" href="https://www.spigotmc.org/resources/authors/farhan12.1495896/"><span data-i="f3">My plugins</span><small data-i="f4">On SpigotMC</small></a>
+      <a class="card" href="https://discord.gg/zYwBQ67k4z"><span>Discord</span><small data-i="f5">Come say hi</small></a>
+      <a class="card" id="mail" href="#"><span data-i="f6">Email</span><small data-i="f7">Write to me</small></a>
+    </div>
+  </div></section>
 </main>
-
-<footer><div class="wrap">&copy; 2026 Farhan Ali Shaikh. Karachi, Pakistan.</div></footer>
+<footer><div class="wrap">&copy; 2026 <span data-i="brand">Farhan Ali Shaikh</span></div></footer>
 
 <script>
 (function(){
-  var root=document.documentElement, btn=document.getElementById('theme');
-  try{var saved=localStorage.getItem('theme'); if(saved){root.setAttribute('data-theme',saved);}}catch(e){}
-  btn.addEventListener('click',function(){
-    var dark=root.getAttribute('data-theme')==='dark' ||
-      (!root.getAttribute('data-theme') && window.matchMedia('(prefers-color-scheme: dark)').matches);
-    var next=dark?'light':'dark';
-    root.setAttribute('data-theme',next);
-    try{localStorage.setItem('theme',next);}catch(e){}
-  });
+var d=document,root=d.documentElement,fx=root.classList.contains('fx'),lang='en',tw=0,ws=[];
+function $(s,c){return Array.prototype.slice.call((c||d).querySelectorAll(s));}
+function mk(t,c){var e=d.createElement(t);e.className=c||'';return e;}
+var clamp=function(v,a,b){return Math.min(b,Math.max(a,v));};
+
+var T={en:{},
+ur:{brand:'فرحان علی شیخ',n1:'تعارف',n2:'میں کیا کرتا ہوں',n3:'مجھے ڈھونڈیں',h1:'ہیلو، میں فرحان ہوں۔',tp:'میں کوڈ لکھتا ہوں:',sr:'میں مائن کرافٹ پلگ اِنز، ڈسکورڈ بوٹس، ویب سائٹس اور بہت کچھ کوڈ کرتا ہوں۔',lead:'کراچی کا نویں جماعت کا طالب علم، جسے کمپیوٹر سے محبت ہے۔',story:'میں کراچی کا نویں جماعت کا کمپیوٹر سائنس کا طالب علم ہوں۔ میں چیزیں بنا کر اور انہیں چلنے تک ٹیسٹ کر کے سیکھتا ہوں۔ ایک دن میں کمپیوٹر انجینئر بنوں گا۔',p1:'میں کوڈ کرتا ہوں۔',q1:'مائن کرافٹ پلگ اِنز، ڈسکورڈ بوٹس اور ویب سائٹس، جاوا، ایچ ٹی ایم ایل اور سی ایس ایس میں۔',p2:'میں مرمت کرتا ہوں۔',q2:'ونڈوز انسٹال، سافٹ ویئر کے مسائل، اور ریم، ڈسک اور مدر بورڈ کی جانچ۔',p3:'میں بناتا ہوں۔',q3:'یوٹیوب چینل پر مزے کی رینڈم ویڈیوز، اور 600 سے زیادہ سبسکرائبرز۔',p4:'میں سکھاتا ہوں۔',q4:'میں ٹیکنالوجی آسان انداز میں سمجھاتا ہوں تاکہ میرے دوست خود کر سکیں۔',s0:'چند اعداد۔',s1:'یوٹیوب سبسکرائبرز',s2:'ٹائپنگ کے الفاظ فی منٹ',s3:'میرے سرور پر ایک وقت میں آن لائن کھلاڑی',s4:'زبانیں جو میں بولتا ہوں',f0:'مجھے آن لائن ڈھونڈیں۔',f1:'میرا کوڈ',f2:'میری ویڈیوز',f3:'میرے پلگ اِنز',f4:'SpigotMC پر',f5:'آ کر ہیلو کہیں',f6:'ای میل',f7:'مجھے لکھیں'},
+sd:{brand:'فرحان علي شيخ',n1:'تعارف',n2:'مان ڇا ڪريان ٿو',n3:'مون کي ڳوليو',h1:'هيلو، مان فرحان آهيان.',tp:'مان ڪوڊ لکندو آهيان:',sr:'مان مائن ڪرافٽ پلگ ان، ڊسڪورڊ بوٽ، ويب سائيٽون ۽ گهڻو ڪجهه ڪوڊ ڪريان ٿو.',lead:'ڪراچيءَ جو نائين درجي جو شاگرد، جنهن کي ڪمپيوٽر سان محبت آهي.',story:'مان ڪراچيءَ جو نائين درجي جو ڪمپيوٽر سائنس جو شاگرد آهيان. مان شيون ٺاهي ۽ انهن کي هلڻ تائين ٽيسٽ ڪري سکندو آهيان. هڪ ڏينهن مان ڪمپيوٽر انجنيئر ٿيندس.',p1:'مان ڪوڊ ڪريان ٿو.',q1:'مائن ڪرافٽ پلگ ان، ڊسڪورڊ بوٽ ۽ ويب سائيٽون، جاوا، ايڇ ٽي ايم ايل ۽ سي ايس ايس ۾.',p2:'مان مرمت ڪريان ٿو.',q2:'ونڊوز انسٽال، سافٽ ويئر جا مسئلا، ۽ ريم، ڊسڪ ۽ مدر بورڊ جي چڪاس.',p3:'مان ٺاهيان ٿو.',q3:'يوٽيوب چينل تي مزيدار رينڊم وڊيوز، ۽ 600 کان وڌيڪ سبسڪرائبر.',p4:'مان سيکاريان ٿو.',q4:'مان ٽيڪنالاجي آسان نموني سمجهايان ٿو، ته جيئن منهنجا دوست پاڻ ڪري سگهن.',s0:'ڪجهه انگ.',s1:'يوٽيوب سبسڪرائبر',s2:'ٽائپنگ جا لفظ في منٽ',s3:'منهنجي سرور تي هڪ وقت ۾ آن لائن رانديگر',s4:'ٻوليون جيڪي مان ڳالهايان ٿو',f0:'مون کي آن لائن ڳوليو.',f1:'منهنجو ڪوڊ',f2:'منهنجيون وڊيوز',f3:'منهنجا پلگ ان',f4:'SpigotMC تي',f5:'اچي هيلو چئو',f6:'اي ميل',f7:'مون ڏانهن لکو'},
+ar:{brand:'فرحان علي الشيخ',n1:'نبذة',n2:'ماذا أفعل',n3:'تجدني هنا',h1:'مرحباً، أنا فرحان.',tp:'أبرمج:',sr:'أبرمج إضافات ماين كرافت وبوتات ديسكورد ومواقع ويب وأكثر.',lead:'طالب في الصف التاسع من كراتشي، يحب الكمبيوتر.',story:'أنا طالب علوم حاسوب في الصف التاسع من كراتشي. أتعلم بصنع الأشياء واختبارها حتى تعمل. وفي يوم من الأيام سأصبح مهندس حاسوب.',p1:'أبرمج.',q1:'إضافات ماين كرافت وبوتات ديسكورد ومواقع ويب، بلغات جافا وHTML وCSS.',p2:'أصلح.',q2:'تثبيت ويندوز، ومشاكل البرامج، وفحص الرام والقرص واللوحة الأم.',p3:'أصنع.',q3:'قناة يوتيوب بمقاطع عشوائية ممتعة وأكثر من 600 مشترك.',p4:'أعلّم.',q4:'أشرح التقنية ببساطة ليتمكن أصدقائي من فعلها بأنفسهم.',s0:'بعض الأرقام.',s1:'مشترك في يوتيوب',s2:'كلمة في الدقيقة عند الكتابة',s3:'لاعبون متصلون معاً على خادمي',s4:'لغات أتحدث بها',f0:'تجدني على الإنترنت.',f1:'شيفرتي',f2:'مقاطعي',f3:'إضافاتي',f4:'على SpigotMC',f5:'تعال وألقِ التحية',f6:'البريد',f7:'راسلني'}};
+var W={en:['Minecraft plugins','Discord bots','websites','and more'],
+ur:['مائن کرافٹ پلگ اِنز','ڈسکورڈ بوٹس','ویب سائٹس','اور بہت کچھ'],
+sd:['مائن ڪرافٽ پلگ ان','ڊسڪورڊ بوٽ','ويب سائيٽون','۽ گهڻو ڪجهه'],
+ar:['إضافات ماين كرافت','بوتات ديسكورد','مواقع ويب','وأكثر']};
+$('[data-i]').forEach(function(e){T.en[e.dataset.i]=e.textContent;});
+
+var mail=d.getElementById('mail');mail.href='mailto:'+['farhan5890123','gmail.com'].join('@');
+var tr=d.getElementById('track');tr.innerHTML+=tr.innerHTML;
+
+function buildH1(){var h=d.getElementById('h1'),t=h.textContent,en=lang==='en',i=0;
+  h.setAttribute('aria-label',t);h.textContent='';h.style.setProperty('--s',(en?55:170)+'ms');
+  t.split(' ').forEach(function(w){var s=mk('span','wd');s.setAttribute('aria-hidden','true');
+    (en?w.split(''):[w]).forEach(function(c){var l=mk('span','ch');l.style.setProperty('--i',i++);l.textContent=c;s.appendChild(l);});h.appendChild(s);});}
+function buildStory(){var s=d.getElementById('story'),t=s.textContent;s.textContent='';
+  t.split(' ').forEach(function(x){var e=mk('span','w');e.textContent=x+' ';s.appendChild(e);});ws=$('.w',s);}
+function typer(){var el=d.getElementById('word'),words=W[lang],my=++tw,w=0,c=0,del=false;
+  if(!fx){el.textContent=words.join(lang==='en'?', ':'، ');return;}
+  el.textContent='';(function tick(){if(my!==tw)return;var full=words[w],t=del?40:85;
+    if(!del){c++;el.textContent=full.slice(0,c);if(c===full.length){del=true;t=1500;}}
+    else{c--;el.textContent=full.slice(0,c);if(c===0){del=false;w=(w+1)%words.length;t=350;}}
+    setTimeout(tick,t);})();}
+function apply(l){lang=l;var D=T[l];root.lang=l;root.dir=l==='en'?'ltr':'rtl';
+  $('[data-i]').forEach(function(e){var v=D[e.dataset.i];if(v!=null)e.textContent=v;});
+  $('.lang button').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.l===l);});
+  if(fx){buildH1();buildStory();}
+  typer();frame();}
+function setLang(l){try{localStorage.setItem('lang',l);}catch(e){}
+  var m=d.querySelector('main');m.style.opacity=0;setTimeout(function(){apply(l);m.style.opacity=1;},220);}
+$('.lang button').forEach(function(b){b.addEventListener('click',function(){if(b.dataset.l!==lang)setLang(b.dataset.l);});});
+
+var about=d.getElementById('about'),doS=d.getElementById('do'),panels=$('.panel'),dots=$('.dots i'),bar=d.getElementById('bar'),hc=d.getElementById('hc');
+function prog(e){var r=e.getBoundingClientRect();return clamp(-r.top/(r.height-innerHeight),0,1);}
+function frame(){if(!fx)return;
+  var y=scrollY,max=d.documentElement.scrollHeight-innerHeight;
+  bar.style.transform='scaleX('+(max>0?y/max:0)+')';
+  hc.style.transform='translateY('+(y*.3)+'px)';hc.style.opacity=clamp(1-y/(innerHeight*.7),0,1);
+  var n=Math.round(prog(about)*1.15*ws.length);ws.forEach(function(s,k){s.classList.toggle('on',k<n);});
+  var q=prog(doS),m=panels.length-1,act=0,best=9;
+  panels.forEach(function(pn,k){var dd=q*m-k,a=Math.abs(dd);
+    pn.style.opacity=clamp(1.7-a*2.6,0,1);
+    pn.style.transform='translateY('+(-dd*80)+'px) scale('+(1-Math.min(1,a)*.14)+')';
+    pn.style.filter='blur('+Math.min(a*14,14)+'px)';if(a<best){best=a;act=k;}});
+  dots.forEach(function(x,k){x.classList.toggle('on',k===act);});}
+
+var init='en';try{init=localStorage.getItem('lang')||'';}catch(e){}
+if(!T[init]){var nl=(navigator.language||'en').slice(0,2);init=T[nl]?nl:'en';}
+apply(init);
+
+if(!fx){$('.num').forEach(function(n){n.textContent=n.dataset.to+n.dataset.suf;});return;}
+
+var busy=false;function req(){if(!busy){busy=true;requestAnimationFrame(function(){busy=false;frame();});}}
+addEventListener('scroll',req,{passive:true});addEventListener('resize',req);
+
+var blobs=$('.blob'),ring=null,tx=0,ty=0,rx=0,ry=0;
+if(matchMedia('(pointer:fine)').matches){ring=mk('div');ring.id='ring';d.body.appendChild(ring);
+  (function loop(){rx+=(tx-rx)*.16;ry+=(ty-ry)*.16;ring.style.transform='translate('+rx+'px,'+ry+'px)';requestAnimationFrame(loop);})();
+  d.addEventListener('mouseover',function(e){ring.classList.toggle('big',!!e.target.closest('a,button'));});}
+addEventListener('mousemove',function(e){tx=e.clientX;ty=e.clientY;
+  root.style.setProperty('--mx',tx+'px');root.style.setProperty('--my',ty+'px');
+  var x=tx/innerWidth-.5,y=ty/innerHeight-.5;
+  blobs.forEach(function(b,k){b.style.translate=(x*-40*(k+1))+'px '+(y*-40*(k+1))+'px';});},{passive:true});
+
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;
+  e.target.classList.add('in');io.unobserve(e.target);
+  $('.num',e.target).forEach(function(n){var to=+n.dataset.to,t0=null;
+    (function step(t){t0=t0||t;var k=clamp((t-t0)/1600,0,1),v=1-Math.pow(1-k,4);
+      n.textContent=Math.round(to*v)+(k===1?n.dataset.suf:'');if(k<1)requestAnimationFrame(step);})(performance.now());});});},{threshold:.3});
+$('.rv').forEach(function(e){io.observe(e);});
+
+$('.card').forEach(function(cd){
+  cd.addEventListener('mousemove',function(e){var r=cd.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;
+    cd.style.transitionDelay='0s';cd.style.transform='rotateY('+(x*14)+'deg) rotateX('+(-y*14)+'deg) translateZ(8px)';});
+  cd.addEventListener('mouseleave',function(){cd.style.transform='';});});
 })();
 </script>
 </body>

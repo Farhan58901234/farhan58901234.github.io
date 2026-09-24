@@ -1,189 +1,179 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Farhan Ali | Developer Portfolio</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #0f172a;
-      color: #f8fafc;
-      transition: background-color 0.4s, color 0.4s;
-      padding: 2rem;
-    }
-
-    body.light {
-      background-color: #f1f5f9;
-      color: #0f172a;
-    }
-
-    nav {
-      background: #1e293b;
-      padding: 1rem;
-      text-align: center;
-      margin: -2rem -2rem 2rem -2rem;
-    }
-
-    nav a {
-      color: #38bdf8;
-      text-decoration: none;
-      margin: 0 1rem;
-      font-weight: bold;
-    }
-
-    nav a:hover {
-      color: #7dd3fc;
-    }
-
-    .toggle-mode {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      background: #1e293b;
-      color: white;
-      padding: 6px 12px;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      z-index: 999;
-    }
-
-    body.light .toggle-mode {
-      background: #cbd5e1;
-      color: #0f172a;
-    }
-
-    .container {
-      max-width: 800px;
-      margin: auto;
-      text-align: center;
-      animation: fadeIn 1s ease;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    h1 {
-      font-size: 3rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .typewriter::after {
-      content: "|";
-      animation: blink 1s infinite;
-    }
-
-    @keyframes blink {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0; }
-    }
-
-    h2 {
-      font-size: 2rem;
-      margin: 2rem 0 1rem;
-      color: #38bdf8;
-    }
-
-    body.light h2 {
-      color: #0ea5e9;
-    }
-
-    p {
-      font-size: 1.1rem;
-      color: #94a3b8;
-    }
-
-    body.light p {
-      color: #475569;
-    }
-
-    .tag {
-      display: inline-block;
-      background-color: #1e293b;
-      color: #38bdf8;
-      padding: 0.4rem 0.8rem;
-      border-radius: 999px;
-      margin: 0.3rem;
-      font-size: 0.95rem;
-      transition: transform 0.3s;
-    }
-
-    .tag:hover {
-      transform: scale(1.1);
-    }
-
-    body.light .tag {
-      background-color: #e2e8f0;
-      color: #0284c7;
-    }
-
-    footer {
-      margin-top: 3rem;
-      font-size: 0.9rem;
-      color: #64748b;
-    }
-
-    @media (max-width: 600px) {
-      h1 { font-size: 2.2rem; }
-      h2 { font-size: 1.6rem; }
-      p { font-size: 1rem; }
-    }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Farhan Ali Shaikh | Minecraft Plugin Developer</title>
+<meta name="description" content="Farhan Ali Shaikh, a 9th-grade Computer Science student from Karachi who builds and ships Minecraft plugins in Java.">
+<style>
+:root{
+  --bg:#EEF1EE; --card:#FFFFFF; --ink:#16211D; --muted:#55645E; --line:#CBD3CE;
+  --spruce:#24473A; --accent:#177E8A; --slot:#C6C6C6; --slot-in:#8B8B8B; --slot-hi:#FFFFFF; --on-accent:#FFFFFF;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#121A17; --card:#1A2622; --ink:#E7EEEA; --muted:#9BAAA3; --line:#2C3B35;
+    --spruce:#7FC4A5; --accent:#5CC7D3; --slot:#3A4641; --slot-in:#222B27; --slot-hi:#55635C; --on-accent:#0E1513;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#121A17; --card:#1A2622; --ink:#E7EEEA; --muted:#9BAAA3; --line:#2C3B35;
+  --spruce:#7FC4A5; --accent:#5CC7D3; --slot:#3A4641; --slot-in:#222B27; --slot-hi:#55635C; --on-accent:#0E1513;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+a{color:var(--accent)}
+a:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.wrap{max-width:900px;margin:0 auto;padding:0 22px}
+header{border-bottom:1px solid var(--line)}
+nav{display:flex;align-items:center;gap:22px;padding:16px 0}
+nav .brand{font-weight:800;color:var(--ink);text-decoration:none;margin-right:auto}
+nav a{color:var(--muted);text-decoration:none;font-weight:600}
+nav a:hover{color:var(--ink)}
+#theme{background:none;border:1px solid var(--line);color:var(--ink);border-radius:8px;padding:6px 10px;font:inherit;cursor:pointer}
+.hero{padding:72px 0 56px}
+h1{font-size:clamp(2.4rem,7vw,4.2rem);line-height:1.05;margin:0 0 20px;letter-spacing:-.02em;color:var(--spruce);max-width:14ch}
+.hero p{max-width:56ch;color:var(--muted);font-size:1.1rem;margin:0 0 26px}
+.btns{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-block;padding:11px 20px;border-radius:8px;font-weight:700;text-decoration:none;border:2px solid var(--accent)}
+.btn.main{background:var(--accent);color:var(--on-accent)}
+.btn.alt{color:var(--accent)}
+section{padding:44px 0;border-top:1px solid var(--line)}
+h2{font-size:1.7rem;margin:0 0 22px;color:var(--spruce);letter-spacing:-.01em}
+.feature{display:grid;grid-template-columns:1.1fr 1fr;gap:34px;align-items:center}
+.feature h3{margin:0 0 6px;font-size:1.35rem}
+.feature p{margin:0 0 14px;color:var(--muted)}
+.facts{display:flex;flex-wrap:wrap;gap:8px 18px;margin:0 0 16px;padding:0;list-style:none;font-weight:700}
+.facts span{color:var(--muted);font-weight:500}
+/* eBanks GUI mock */
+.gui{background:var(--slot);border:3px solid var(--slot-hi);border-right-color:var(--slot-in);border-bottom-color:var(--slot-in);padding:12px;box-shadow:0 0 0 3px #000 inset;border-radius:2px}
+.gui b{display:block;color:#3F3F3F;font-size:.85rem;margin:0 0 8px}
+:root[data-theme="dark"] .gui b{color:#C8D3CD}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .gui b{color:#C8D3CD}}
+.slots{display:grid;grid-template-columns:repeat(5,1fr);gap:5px}
+.slot{aspect-ratio:1;background:var(--slot-in);border:2px solid var(--slot-in);border-right-color:var(--slot-hi);border-bottom-color:var(--slot-hi);display:flex;align-items:center;justify-content:center;text-align:center;font-size:.68rem;line-height:1.15;font-weight:700;color:var(--ink);padding:2px}
+.slot.on{background:var(--accent);color:var(--on-accent)}
+.list{display:grid;gap:0;margin:0;padding:0;list-style:none}
+.list li{display:grid;grid-template-columns:190px 1fr;gap:14px;padding:14px 0;border-bottom:1px solid var(--line)}
+.list li:last-child{border-bottom:0}
+.list a{font-weight:700}
+.list span{color:var(--muted)}
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:26px}
+.skills h3{margin:0 0 6px;font-size:1.05rem}
+.skills p{margin:0;color:var(--muted)}
+.links{display:flex;flex-wrap:wrap;gap:12px}
+footer{padding:28px 0 40px;color:var(--muted);font-size:.9rem;border-top:1px solid var(--line)}
+@media (max-width:720px){
+  .feature{grid-template-columns:1fr}
+  .list li{grid-template-columns:1fr;gap:2px}
+  nav{gap:14px;flex-wrap:wrap}
+}
+</style>
 </head>
 <body>
-  <button class="toggle-mode" onclick="toggleMode()">☀️ / 🌙</button>
+<header>
+  <div class="wrap">
+    <nav aria-label="Main">
+      <a class="brand" href="#top">Farhan Ali Shaikh</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+      <button id="theme" type="button" aria-label="Switch between light and dark theme">Theme</button>
+    </nav>
+  </div>
+</header>
 
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="projects.html">Projects</a>
-    <a href="contact.html">Contact</a>
-  </nav>
-
-  <div class="container">
-    <h1 class="typewriter" id="name"></h1>
-    <p>👨‍💻 Self-taught Developer | Pakistan</p>
-
-    <h2>👋 About Me</h2>
-    <p>I’m a passionate young developer who loves Java and JavaScript. I create useful things — from Minecraft plugins to random web tools.</p>
-
-    <h2>💻 Languages & Tools</h2>
-    <div>
-      <span class="tag">JavaScript</span>
-      <span class="tag">Java</span>
-      <span class="tag">HTML</span>
-      <span class="tag">CSS</span>
+<main id="top">
+  <div class="wrap hero">
+    <h1>I build Minecraft plugins.</h1>
+    <p>I'm Farhan, a 9th-grade Computer Science student from Karachi. I plan, test and ship plugins in Java with AI-assisted development, and I like teaching others how tech works.</p>
+    <div class="btns">
+      <a class="btn main" href="#projects">See my projects</a>
+      <a class="btn alt" href="#contact">Get in touch</a>
     </div>
-
-    <footer>
-      <p>© 2025 Farhan Ali. Built with ❤️.</p>
-    </footer>
   </div>
 
-  <script>
-    function toggleMode() {
-      document.body.classList.toggle('light');
-    }
+  <section id="projects">
+    <div class="wrap">
+      <h2>Projects</h2>
+      <div class="feature">
+        <div>
+          <h3>eBanks</h3>
+          <p>A full banking plugin: deposits, withdrawals, transfers, interest and loans, from an in-game menu or a web dashboard that works on phones.</p>
+          <ul class="facts">
+            <li>260+ <span>downloads</span></li>
+            <li>5/5 <span>rating</span></li>
+            <li>14 <span>updates</span></li>
+          </ul>
+          <p>Supports 8 languages, including Urdu and Hindi. Tested on Minecraft 1.16 to 26.2.</p>
+          <a class="btn main" href="https://www.spigotmc.org/resources/ebanks-banking-loans-gui-web-interface.133082/">View on SpigotMC</a>
+        </div>
+        <div class="gui" role="img" aria-label="Illustration of the eBanks in-game menu">
+          <b>eBanks</b>
+          <div class="slots" aria-hidden="true">
+            <div class="slot on">Balance</div><div class="slot"></div><div class="slot on">Deposit</div><div class="slot"></div><div class="slot on">Withdraw</div>
+            <div class="slot"></div><div class="slot on">Send</div><div class="slot"></div><div class="slot on">Loans</div><div class="slot"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    const nameText = "Farhan Ali";
-    let i = 0;
-    function typeWriter() {
-      if (i < nameText.length) {
-        document.getElementById("name").innerHTML += nameText.charAt(i);
-        i++;
-        setTimeout(typeWriter, 150);
-      }
-    }
+  <section>
+    <div class="wrap">
+      <h2>More plugins</h2>
+      <ul class="list">
+        <li><a href="https://www.spigotmc.org/resources/nexuswarps-%E2%80%94-advanced-player-warp-system.133419/">NexusWarps</a><span>Player warps with a menu, ratings and multi-language support.</span></li>
+        <li><a href="https://www.spigotmc.org/resources/kronos-%E2%9A%A1-real-time-tps-monitor-lag-analyzer.133035/">Kronos</a><span>Real-time TPS monitor that shows what is causing server lag.</span></li>
+        <li><a href="https://www.spigotmc.org/resources/%E2%9E%A4-motdrotator-%E2%80%93-rotate-your-server-motd-automatically.127195/">MOTDRotator</a><span>Rotates your server's MOTD automatically.</span></li>
+        <li><a href="https://github.com/Farhan58901234/GrapplerLite">GrapplerLite</a><span>A lightweight, customizable grappling hook. Source on GitHub.</span></li>
+        <li><a href="https://github.com/Farhan58901234/MinionPlugin">MinionsPlugin</a><span>Minions that auto-mine, auto-farm and collect loot. Source on GitHub.</span></li>
+        <li><a href="https://www.spigotmc.org/resources/customnick-1-8-1-20.114371/">CustomNick</a><span>Colorful custom nicknames for players.</span></li>
+      </ul>
+    </div>
+  </section>
 
-    window.onload = typeWriter;
-  </script>
+  <section id="skills">
+    <div class="wrap">
+      <h2>Skills</h2>
+      <div class="skills">
+        <div><h3>Building</h3><p>Minecraft plugins in Java, built with AI-assisted development. HTML and CSS for this site.</p></div>
+        <div><h3>Testing and fixing</h3><p>I test every release myself and fix bugs, including a money-duplication exploit in eBanks.</p></div>
+        <div><h3>Computers</h3><p>Windows reinstalls, software fixes and basic hardware checks. I have taught friends to do it themselves.</p></div>
+        <div><h3>Minecraft servers</h3><p>Set up and ran a community server with up to 15 players online at once.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <h2>Contact</h2>
+      <p style="margin:0 0 18px;color:var(--muted)">For plugin help or questions, the quickest way is the Discord server.</p>
+      <div class="links">
+        <a class="btn main" href="https://discord.gg/zYwBQ67k4z">Discord</a>
+        <a class="btn alt" href="https://github.com/Farhan58901234">GitHub</a>
+        <a class="btn alt" href="https://www.spigotmc.org/resources/authors/farhan12.1495896/">SpigotMC</a>
+        <a class="btn alt" href="https://www.youtube.com/@MemeboyFarhan">YouTube</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap">&copy; 2026 Farhan Ali Shaikh. Karachi, Pakistan.</div></footer>
+
+<script>
+(function(){
+  var root=document.documentElement, btn=document.getElementById('theme');
+  try{var saved=localStorage.getItem('theme'); if(saved){root.setAttribute('data-theme',saved);}}catch(e){}
+  btn.addEventListener('click',function(){
+    var dark=root.getAttribute('data-theme')==='dark' ||
+      (!root.getAttribute('data-theme') && window.matchMedia('(prefers-color-scheme: dark)').matches);
+    var next=dark?'light':'dark';
+    root.setAttribute('data-theme',next);
+    try{localStorage.setItem('theme',next);}catch(e){}
+  });
+})();
+</script>
 </body>
 </html>

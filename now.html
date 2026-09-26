@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Now | Farhan Ali Shaikh</title>
+<meta name="description" content="What Farhan Ali Shaikh is currently learning and building.">
+<meta name="theme-color" content="#05080a">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@500;700&display=swap" rel="stylesheet">
+<script>if(!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('fx');</script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="bar"></div>
+<button id="totop" aria-label="Back to top"><svg viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
+<nav aria-label="Main"><div class="wrap">
+  <a class="brand" href="index.html" data-i="brand">Farhan Ali Shaikh</a>
+  <span class="nl"><a href="index.html#about" data-i="n1">About</a><a href="index.html#do" data-i="n2">What I do</a><a href="projects.html" data-i="n4">Projects</a><a href="now.html" data-i="n5">Now</a><a href="index.html#find" data-i="n3">Find me</a></span>
+  <button id="snd" type="button" aria-label="Sound" aria-pressed="true"><svg viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9z"/><path class="wv" d="M16.5 8.5a5 5 0 010 7M19 6a8.5 8.5 0 010 12"/><path class="x" d="M17 9l5 6M22 9l-5 6"/></svg></button>
+  <div class="themes"><button class="tbtn" id="tbtn" type="button" aria-label="Theme" aria-haspopup="true" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="2.4" fill="currentColor" stroke="none"/></svg></button>
+    <div class="tmenu" id="tmenu" role="menu"><span class="lbl" data-i="thlbl">Theme</span>
+      <button data-th="ocean" style="background:linear-gradient(135deg,#5CC7D3,#7FE3A8)" aria-label="Ocean"></button>
+      <button data-th="sunset" style="background:linear-gradient(135deg,#FF9F5A,#FF6B9E)" aria-label="Sunset"></button>
+      <button data-th="purple" style="background:linear-gradient(135deg,#B98CFF,#7FE3E3)" aria-label="Purple Haze"></button>
+      <button data-th="forest" style="background:linear-gradient(135deg,#8FD17A,#C9E265)" aria-label="Forest"></button>
+      <button data-th="mono" style="background:linear-gradient(135deg,#DADADA,#8A8A8A)" aria-label="Mono"></button>
+    </div>
+  </div>
+  <div class="lang" role="group" aria-label="Language"><button data-l="en">EN</button><button data-l="ur">اردو</button><button data-l="sd">سنڌي</button><button data-l="ar">عربي</button></div>
+</div></nav>
+
+<main>
+  <section class="pgtop"><div class="wrap">
+    <h1 data-i="now_h1">What I'm doing now.</h1>
+    <p data-i="now_lead">A short list of what I'm learning and building at the moment, updated as things change.</p>
+  </div></section>
+
+  <section><div class="wrap">
+    <div class="now-item"><span class="dot"></span><div><h3 data-i="now_t1">Getting ready for matric</h3><p data-i="now_p1">Studying Computer Science in 9th grade, aiming to graduate in 2028.</p></div></div>
+    <div class="now-item"><span class="dot"></span><div><h3 data-i="now_t2">Understanding my own code better</h3><p data-i="now_p2">Learning Java properly, so I rely less on AI and understand more of what I ship.</p></div></div>
+    <div class="now-item"><span class="dot"></span><div><h3 data-i="now_t3">Maintaining eBanks</h3><p data-i="now_p3">Fixing bugs and adding small features to my Minecraft banking plugin.</p></div></div>
+    <div class="now-item"><span class="dot"></span><div><h3 data-i="now_t4">Tidying my channel</h3><p data-i="now_p4">Cleaning up my YouTube channel and posting more tech content.</p></div></div>
+
+    <div class="fact">
+      <p id="factText" data-i="now_fact0">Click the button for a random fact about me.</p>
+      <button id="factBtn" type="button" data-i="now_factbtn">Surprise me</button>
+    </div>
+  </div></section>
+</main>
+<footer><div class="wrap">&copy; 2026 <span data-i="brand">Farhan Ali Shaikh</span></div></footer>
+<div id="toast" data-i="egg" role="status">You found the secret!</div>
+<script src="script.js" defer></script>
+</body>
+</html>

@@ -29,7 +29,9 @@ if(THEMES.indexOf(savedTheme)<0)savedTheme='ocean';
 setTheme(savedTheme,true);
 var tbtn=d.getElementById('tbtn'),tmenu=d.getElementById('tmenu');
 if(tbtn){tbtn.addEventListener('click',function(e){e.stopPropagation();var open=tmenu.classList.toggle('open');tbtn.setAttribute('aria-expanded',open);});
-  $('.tmenu button[data-th]').forEach(function(b){b.addEventListener('click',function(){setTheme(b.dataset.th);tmenu.classList.remove('open');tbtn.setAttribute('aria-expanded','false');});});
+  $('.tmenu button[data-th]').forEach(function(b){b.addEventListener('click',function(){
+    if(b.classList.contains('locked')){toast(HUNT_MSG.locked[lang]);tone(160,90,.25,.08,'square');return;}
+    setTheme(b.dataset.th);tmenu.classList.remove('open');tbtn.setAttribute('aria-expanded','false');});});
   d.addEventListener('click',function(){tmenu.classList.remove('open');tbtn.setAttribute('aria-expanded','false');});}
 Object.assign(T.ur,{clk:'کراچی کا وقت',egg:'آپ نے راز ڈھونڈ لیا!',t0:'میرے اوزار۔',t1:'جاوا',t2:'ایچ ٹی ایم ایل',t3:'سی ایس ایس',t4:'جاوا اسکرپٹ',t5:'ڈسکورڈ',t6:'ونڈوز',t7:'کیپ کٹ'});
 Object.assign(T.sd,{clk:'ڪراچيءَ جو وقت',egg:'توهان راز ڳولي لڌو!',t0:'منهنجا اوزار.',t1:'جاوا',t2:'ايڇ ٽي ايم ايل',t3:'سي ايس ايس',t4:'جاوا اسڪرپٽ',t5:'ڊسڪورڊ',t6:'ونڊوز',t7:'ڪيپ ڪٽ'});
@@ -49,7 +51,11 @@ Object.assign(T.ur,{pr_h1:'میرے پروجیکٹس۔',pr_lead:'مائن کرا
  now_t2:'اپنا کوڈ بہتر سمجھنا',now_p2:'جاوا صحیح طریقے سے سیکھ رہا ہوں، تاکہ AI پر کم انحصار ہو۔',
  now_t3:'eBanks کی دیکھ بھال',now_p3:'اپنے مائن کرافٹ بینکنگ پلگ اِن میں بگ ٹھیک کر رہا ہوں اور چھوٹی خصوصیات شامل کر رہا ہوں۔',
  now_t4:'اپنا چینل سنوارنا',now_p4:'یوٹیوب چینل صاف کر رہا ہوں اور زیادہ ٹیک ویڈیوز ڈال رہا ہوں۔',
- now_fact0:'اپنے بارے میں ایک بے ترتیب حقیقت کے لیے بٹن دبائیں۔',now_factbtn:'مجھے حیران کرو'});
+ now_fact0:'اپنے بارے میں ایک بے ترتیب حقیقت کے لیے بٹن دبائیں۔',now_factbtn:'مجھے حیران کرو',
+ sec_h1:'آپ نے تینوں ٹکڑے ڈھونڈ لیے۔',sec_lead:'زیادہ لوگ اتنی گہرائی سے نہیں دیکھتے۔ اس محنت کے لیے کچھ حاضر ہے۔',
+ sec_msg:'ارے، یہ فرحان ہے۔ میری سائٹ کو صرف سرسری نظر ڈالنے کے بجائے اسے کھنگالنے کا شکریہ۔ سنہری "Legend" تھیم اب تھیم مینو میں آپ کے لیے کھل گیا ہے۔',
+ sec_discord:'Discord پر "میں نے ڈھونڈ لیا" لکھ کر بھیجیں','sec_back':'سائٹ پر واپس',
+ sec_lock_h1:'ابھی نہیں۔',sec_lock_lead:'یہ صفحہ سائٹ میں چھپے 3 ٹکڑے ڈھونڈنے کا انعام ہے۔ آپ نے ابھی سب نہیں ڈھونڈے۔',sec_lock_btn:'جا کر ڈھونڈیں'});
 Object.assign(T.sd,{pr_h1:'منهنجا پروجيڪٽ.',pr_lead:'مائن ڪرافٽ پلگ ان جيڪي مون ٺاهيا، ٽيسٽ ڪيا ۽ رليز ڪيا، گهڻو ڪري جاوا ۽ AI جي مدد سان.',
  pr_tag1:'نمايان',pr_desc1:'مائن ڪرافٽ سرورز لاءِ مڪمل بئنڪنگ پلگ ان: ڊپازٽ، ڪڍڻ، ٽرانسفر، سود ۽ قرض، ان گيم مينيو يا موبائل لاءِ مناسب ويب ڊيش بورڊ سان.',
  pr_li1:'260 کان وڌيڪ ڊائون لوڊ ۽ 5/5 ريٽنگ',pr_li2:'14 اپڊيٽون، جن ۾ هڪ پئسا ڊپليڪيشن خامي جو حل شامل آهي',pr_li3:'اردو ۽ هندي سميت 8 ٻولين جا پريسيٽ',
@@ -65,7 +71,11 @@ Object.assign(T.sd,{pr_h1:'منهنجا پروجيڪٽ.',pr_lead:'مائن ڪر�
  now_t2:'پنهنجو ڪوڊ بهتر سمجهڻ',now_p2:'جاوا صحيح نموني سکي رهيو آهيان، ته جيئن AI تي گهٽ ڀاڙو ٿئي.',
  now_t3:'eBanks جي سنڀال',now_p3:'پنهنجي مائن ڪرافٽ بئنڪنگ پلگ ان ۾ بگ درست ڪري رهيو آهيان ۽ ننڍيون خاصيتون شامل ڪري رهيو آهيان.',
  now_t4:'پنهنجو چينل سنوارڻ',now_p4:'يوٽيوب چينل صاف ڪري رهيو آهيان ۽ وڌيڪ ٽيڪ وڊيوز وجهي رهيو آهيان.',
- now_fact0:'پنهنجي باري ۾ هڪ بي ترتيب حقيقت لاءِ بٽڻ دٻايو.',now_factbtn:'مون کي حيران ڪر'});
+ now_fact0:'پنهنجي باري ۾ هڪ بي ترتيب حقيقت لاءِ بٽڻ دٻايو.',now_factbtn:'مون کي حيران ڪر',
+ sec_h1:'توهان ٽئي ٽڪرا ڳولي ورتا.',sec_lead:'گهڻا ماڻهو ايترو غور سان نه ٿا ڏسن. هن محنت لاءِ ڪجهه حاضر آهي.',
+ sec_msg:'اڙي، هي فرحان آهي. منهنجي سائيٽ کي رڳو مٿاڇري نظر هڻڻ بجاءِ کوٽيندي رهڻ جي مهرباني. سونهري "Legend" ٿيم هاڻي ٿيم مينيو ۾ توهان لاءِ کلي ويو آهي.',
+ sec_discord:'Discord تي "مون ڳولي ورتو" لکي موڪليو',sec_back:'سائيٽ ڏانهن واپس',
+ sec_lock_h1:'اڃا نه.',sec_lock_lead:'هي صفحو سائيٽ ۾ لڪل 3 ٽڪرا ڳولڻ جو انعام آهي. توهان اڃا سڀ نه ڳوليا آهن.',sec_lock_btn:'وڃي ڳوليو'});
 Object.assign(T.ar,{pr_h1:'مشاريعي.',pr_lead:'إضافات ماين كرافت قمت ببنائها واختبارها ونشرها، غالباً بلغة جافا وبمساعدة الذكاء الاصطناعي.',
  pr_tag1:'مميز',pr_desc1:'إضافة بنكية كاملة لخوادم ماين كرافت: إيداع وسحب وتحويل وفوائد وقروض، من قائمة داخل اللعبة أو لوحة ويب متوافقة مع الجوال.',
  pr_li1:'أكثر من 260 تنزيلاً وتقييم 5/5',pr_li2:'14 تحديثاً، منها إصلاح لثغرة تكرار المال',pr_li3:'8 لغات جاهزة، منها الأردية والهندية',
@@ -81,7 +91,11 @@ Object.assign(T.ar,{pr_h1:'مشاريعي.',pr_lead:'إضافات ماين كر�
  now_t2:'فهم شيفرتي بشكل أفضل',now_p2:'أتعلم جافا بشكل صحيح لأعتمد أقل على الذكاء الاصطناعي.',
  now_t3:'صيانة eBanks',now_p3:'أصلح الأخطاء وأضيف ميزات صغيرة لإضافتي البنكية.',
  now_t4:'ترتيب قناتي',now_p4:'أنظّف قناتي على يوتيوب وأنشر محتوى تقنياً أكثر.',
- now_fact0:'اضغط الزر لحقيقة عشوائية عني.',now_factbtn:'فاجئني'});
+ now_fact0:'اضغط الزر لحقيقة عشوائية عني.',now_factbtn:'فاجئني',
+ sec_h1:'وجدت الأجزاء الثلاثة كلها.',sec_lead:'قلة من الناس يبحثون بهذا التمعن. إليك شيئاً على هذا الجهد.',
+ sec_msg:'مرحباً، أنا فرحان. شكراً لتنقيبك في موقعي بدل تصفحه سريعاً فقط. مظهر "Legend" الذهبي مفتوح الآن لك في قائمة المظاهر.',
+ sec_discord:'راسلني "وجدتها" على Discord',sec_back:'العودة للموقع',
+ sec_lock_h1:'ليس بعد.',sec_lock_lead:'هذه الصفحة مكافأة لمن يجد 3 أجزاء مخفية في الموقع. لم تجدها كلها بعد.',sec_lock_btn:'اذهب وابحث'});
 
 /* ---- sound (made in the browser, no files) ---- */
 var AC=null,muted=false,snd=d.getElementById('snd');
@@ -142,11 +156,34 @@ var eggs={
    whoosh();found('theme');},
  party:function(){var i=0,iv=setInterval(function(){setTheme(THEMES[i%THEMES.length],true);confetti(Math.random()*innerWidth,Math.random()*innerHeight*.5,1);i++;if(i>THEMES.length*2){clearInterval(iv);}},260);
    [392,494,587,784].forEach(function(f,k){setTimeout(function(){tone(f,f,.2,.06,'square');},k*130);});found('party');}};
+
+/* ---- scavenger hunt: 3 hidden shards across the site ---- */
+var HUNT_MSG={f1:{en:'Shard 1 of 3 found.',ur:'ٹکڑا 1 از 3 مل گیا۔',sd:'ٽڪرو 1 مان 3 مليو.',ar:'وجدت الجزء 1 من 3.'},
+ f2:{en:'Shard 2 of 3 found.',ur:'ٹکڑا 2 از 3 مل گیا۔',sd:'ٽڪرو 2 مان 3 مليو.',ar:'وجدت الجزء 2 من 3.'},
+ f3:{en:'Shard 3 of 3 found!',ur:'ٹکڑا 3 از 3 مل گیا!',sd:'ٽڪرو 3 مان 3 مليو!',ar:'وجدت الجزء 3 من 3!'},
+ done:{en:'All shards found! Opening the secret page...',ur:'سب ٹکڑے مل گئے! خفیہ صفحہ کھل رہا ہے...',sd:'سڀ ٽڪرا مليا! ڳجھو صفحو کلي رهيو آهي...',ar:'وُجدت كل الأجزاء! يفتح الصفحة السرية...'},
+ hint:{en:'3 shards are hidden across this site. Look closely.',ur:'اس سائٹ پر 3 ٹکڑے چھپے ہیں۔ غور سے دیکھو۔',sd:'هن سائيٽ تي 3 ٽڪرا لڪل آهن. ڌيان سان ڏسو.',ar:'ثمة 3 أجزاء مخفية في هذا الموقع. انظر جيداً.'},
+ locked:{en:'Find all 3 shards to unlock this.',ur:'اسے کھولنے کے لیے سب 3 ٹکڑے ڈھونڈو۔',sd:'ان کي کولڻ لاءِ سڀ 3 ٽڪرا ڳوليو.',ar:'اعثر على الأجزاء الثلاثة لفتحها.'}};
+var hunt={};try{hunt=JSON.parse(localStorage.getItem('hunt')||'{}');}catch(e){}
+var huntDone=false;try{huntDone=localStorage.getItem('huntDone')==='1';}catch(e){}
+var legendBtn=d.querySelector('button[data-th="legend"]');
+if(legendBtn&&huntDone)legendBtn.classList.remove('locked');
+$('.shard').forEach(function(s){s.addEventListener('click',function(e){e.stopPropagation();var id=s.dataset.shard;
+  if(hunt[id])return;hunt[id]=1;try{localStorage.setItem('hunt',JSON.stringify(hunt));}catch(err){}
+  s.style.pointerEvents='none';s.style.opacity='0';
+  var n=Object.keys(hunt).length;
+  tone(700+n*140,900+n*140,.18,.06,'triangle');
+  toast(HUNT_MSG['f'+id]?HUNT_MSG['f'+id][lang]:HUNT_MSG.f1[lang]);
+  if(n>=3&&!huntDone){huntDone=true;try{localStorage.setItem('huntDone','1');}catch(err){}
+    if(legendBtn)legendBtn.classList.remove('locked');
+    setTimeout(function(){toast(HUNT_MSG.done[lang]);confetti(innerWidth/2,innerHeight*.3,1);},300);
+    setTimeout(function(){location.href='secret.html';},2600);}});});
 var buf='',ks=[],KON='ArrowUp,ArrowUp,ArrowDown,ArrowDown,ArrowLeft,ArrowRight,ArrowLeft,ArrowRight,b,a';
 d.addEventListener('keydown',function(e){
   ks.push(e.key.length===1?e.key.toLowerCase():e.key);ks=ks.slice(-10);if(ks.join()===KON){ks=[];eggs.konami();}
   if(e.key.length===1&&/[a-z]/i.test(e.key)){buf=(buf+e.key.toLowerCase()).slice(-10);
-    ['creeper','diamond','salam','theme','party'].forEach(function(w){if(buf.slice(-w.length)===w){buf='';eggs[w]();}});}});
+    ['creeper','diamond','salam','theme','party'].forEach(function(w){if(buf.slice(-w.length)===w){buf='';eggs[w]();}});
+    if(buf.slice(-4)==='hunt'){buf='';toast(HUNT_MSG.hint[lang]);tone(500,650,.15,.05);}}});
 var zones=[['Asia/Karachi',null],['Asia/Tokyo','Tokyo'],['America/New_York','New York'],['Europe/London','London'],['Asia/Dubai','Dubai']],zi=0;
 var clkEl=d.querySelector('.clk');if(clkEl)clkEl.addEventListener('click',function(){zi=(zi+1)%zones.length;
   d.querySelector('[data-i=clk]').textContent=zones[zi][1]||T[lang].clk;clock();found('clock');});
